@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "group": {
+      "daily": "रोज़मर्रा",
+      "finance": "वित्त",
+      "advanced": "उन्नत"
+    },
+    "dashboard": "डैशबोर्ड",
+    "sales": "बिक्री",
+    "receivables": "प्राप्त राशि",
+    "procurement": "खरीद",
+    "payables": "देय बिल",
+    "cashbank": "नकद और बैंक",
+    "expenses": "खर्च",
+    "tax": "कर",
+    "reports": "रिपोर्ट",
+    "advanced-features": "Advanced Features",
+    "parties": "ग्राहक और आपूर्तिकर्ता",
+    "inventory": "इन्वेंटरी",
+    "assets": "स्थायी संपत्ति",
+    "masters": "सेटअप और कॉन्फ़िगरेशन",
+    "business-tools": "टीम और टूल्स",
+    "storage": "दस्तावेज़",
+    "alerts": "अलर्ट",
+    "migration": "डेटा माइग्रेशन"
+  },
+  "common": {
+    "save": "परिवर्तन सहेजें",
+    "cancel": "रद्द करें",
+    "create": "बनाएँ",
+    "edit": "संपादित करें",
+    "delete": "हटाएँ",
+    "search": "खोजें",
+    "connect": "कनेक्ट करें",
+    "configure": "कॉन्फ़िगर करें",
+    "disconnect": "डिस्कनेक्ट करें",
+    "sync": "अभी सिंक करें",
+    "close": "बंद करें",
+    "reset": "डिफ़ॉल्ट पर रीसेट करें"
+  },
+  "shell": {
+    "searchPlaceholder": "कुछ भी खोजें…",
+    "settings": "सेटिंग्स",
+    "language": "भाषा",
+    "role": "भूमिका",
+    "settingsItems": {
+      "company-profile": "कंपनी प्रोफ़ाइल",
+      "configuration": "कॉन्फ़िगरेशन",
+      "fiscal-periods": "वित्तीय अवधि",
+      "roles": "भूमिकाएँ और उपयोगकर्ता",
+      "integrations": "इंटीग्रेशन",
+      "notifications": "सूचनाएँ",
+      "audit-logs": "ऑडिट और लॉग"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "group": {
+      "daily": "Day-to-Day",
+      "finance": "Finance",
+      "advanced": "Advanced"
+    },
+    "dashboard": "Dashboard",
+    "sales": "Sales",
+    "receivables": "Money In",
+    "procurement": "Purchases",
+    "payables": "Bills to Pay",
+    "cashbank": "Cash & Bank",
+    "expenses": "Expenses",
+    "tax": "Tax",
+    "reports": "Reports",
+    "advanced-features": "Advanced Features",
+    "parties": "Customers & Suppliers",
+    "inventory": "Inventory",
+    "assets": "Fixed Assets",
+    "masters": "Setup & Configuration",
+    "business-tools": "Team & Tools",
+    "storage": "Documents",
+    "alerts": "Alerts",
+    "migration": "Data Migration"
+  },
+  "common": {
+    "save": "Save Changes",
+    "cancel": "Cancel",
+    "create": "Create",
+    "edit": "Edit",
+    "delete": "Delete",
+    "search": "Search",
+    "connect": "Connect",
+    "configure": "Configure",
+    "disconnect": "Disconnect",
+    "sync": "Sync Now",
+    "close": "Close",
+    "reset": "Reset to Defaults"
+  },
+  "shell": {
+    "searchPlaceholder": "Search anything…",
+    "settings": "Settings",
+    "language": "Language",
+    "role": "Role",
+    "settingsItems": {
+      "company-profile": "Company Profile",
+      "configuration": "Configuration",
+      "fiscal-periods": "Fiscal Periods",
+      "roles": "Roles & Users",
+      "integrations": "Integrations",
+      "notifications": "Notifications",
+      "audit-logs": "Audit & Logs"
+    }
+  }
+}

@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --color-bg:        #F8FAFC;
+  --color-surface:   #FFFFFF;
+  --color-surface-2: #F1F5F9;
+  --color-border:    #E2E8F0;
+
+  --color-nav:       #0f1629;
+  --color-nav-2:     #1b2540;
+  --color-nav-text:  #c7cede;
+  --color-nav-active:#ffffff;
+
+  --color-primary:      #0F6E56;
+  --color-primary-600:  #0A5A45;
+  --color-primary-tint: #E6F3F0;
+
+  --color-pos:      #22C55E;
+  --color-pos-tint: #DCFCE7;
+  --color-neg:      #EF4444;
+  --color-neg-tint: #FEE2E2;
+  --color-warn:     #F59E0B;
+  --color-warn-tint:#FEF3C7;
+
+  --color-text:  #0F172A;
+  --color-muted: #64748B;
+  --color-faint: #94A3B8;
+}
+
+/* ── CSS variable tokens ── */
+:root {
+  --bg:          #F8FAFC;
+  --surface:     #FFFFFF;
+  --surface-2:   #F1F5F9;
+  --border:      #E2E8F0;
+
+  --nav:         #0f1629;
+  --nav-2:       #1b2540;
+  --nav-text:    #c7cede;
+  --nav-active:  #ffffff;
+
+  --primary:     #0F6E56;
+  --primary-600: #0A5A45;
+  --primary-tint:#E6F3F0;
+
+  --pos:         #22C55E;
+  --pos-tint:    #DCFCE7;
+  --neg:         #EF4444;
+  --neg-tint:    #FEE2E2;
+  --warn:        #F59E0B;
+  --warn-tint:   #FEF3C7;
+
+  --text:        #0F172A;
+  --muted:       #64748B;
+  --faint:       #94A3B8;
+
+  --radius:    16px;
+  --radius-sm: 10px;
+
+  --shadow:
+    0 1px 3px rgba(15, 23, 42, 0.06),
+    0 4px 16px -4px rgba(15, 23, 42, 0.10);
+}
+
+/* ── Dark mode tokens ── */
+[data-theme="dark"] {
+  --bg:          #0D1117;
+  --surface:     #161B22;
+  --surface-2:   #21262D;
+  --border:      #30363D;
+
+  --nav:         #010409;
+  --nav-2:       #0D1117;
+  --nav-text:    #8B949E;
+  --nav-active:  #ffffff;
+
+  --primary:     #10B981;
+  --primary-600: #059669;
+  --primary-tint:#0D3D30;
+
+  --pos:         #4ADE80;
+  --pos-tint:    #052E16;
+  --neg:         #F87171;
+  --neg-tint:    #450A0A;
+  --warn:        #FBBF24;
+  --warn-tint:   #451A03;
+
+  --text:        #E6EDF3;
+  --muted:       #8B949E;
+  --faint:       #484F58;
+
+  --shadow:
+    0 1px 3px rgba(0,0,0,0.4),
+    0 4px 16px -4px rgba(0,0,0,0.5);
+}
+
+/* ── Base reset ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* prevent body scroll — only inner panels scroll */
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Tabular numbers ── */
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar        { width: 5px; height: 5px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--border); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--faint); }
+
+/* Dark scrollbar inside sidebar */
+aside ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); }
+aside ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+
+/* ── Focus ring ── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ────────────────────────────────────────────────
+   PAGE TRANSITION — fires on every route change
+   (AppShell keys the wrapper div by location.key)
+──────────────────────────────────────────────── */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.page-enter {
+  animation: page-in 300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Staggered card entrance ── */
+@keyframes item-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.stagger > * {
+  animation: item-in 280ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.stagger > *:nth-child(1) { animation-delay:   0ms; }
+.stagger > *:nth-child(2) { animation-delay:  55ms; }
+.stagger > *:nth-child(3) { animation-delay: 110ms; }
+.stagger > *:nth-child(4) { animation-delay: 165ms; }
+.stagger > *:nth-child(5) { animation-delay: 220ms; }
+.stagger > *:nth-child(6) { animation-delay: 275ms; }
+.stagger > *:nth-child(7) { animation-delay: 330ms; }
+.stagger > *:nth-child(8) { animation-delay: 385ms; }
+
+/* ────────────────────────────────────────────────
+   SIDEBAR ACCORDION — smooth expand / collapse
+   Uses CSS grid trick: grid-template-rows: 0fr → 1fr
+   No JS height calculation needed.
+──────────────────────────────────────────────── */
+.nav-accordion {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-accordion.open {
+  grid-template-rows: 1fr;
+}
+.nav-accordion > div {
+  overflow: hidden;
+}
+
+/* ── Fade-in for accordion items when they appear ── */
+.nav-accordion.open > div > * {
+  animation: item-in 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Table base ── */
+table { border-collapse: collapse; width: 100%; }
+
+/* ── Hide scrollbar (but keep scrollable) — used in TabPanel ── */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── SR-only ── */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
