@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Plus } from 'lucide-react'
 import PageHeader from '../../components/layout/PageHeader'
 import DataTable from '../../components/ui/DataTable'
@@ -21,6 +22,7 @@ function UtilizationBar({ used, budget }) {
 }
 
 export default function Categories() {
+  const navigate = useNavigate()
   const [categories, setCategories] = useState([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
@@ -53,7 +55,7 @@ export default function Categories() {
   return (
     <div>
       <PageHeader title="Expense Categories" subtitle="Budget allocation & utilization" breadcrumb={['Expenses & Journals', 'Categories']}
-        action={<Button variant="primary" icon={Plus} size="sm">New Category</Button>}
+        action={<Button variant="primary" icon={Plus} size="sm" onClick={() => navigate('/expenses/new-category')}>New Category</Button>}
       />
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-5">
         {kpis.map(k => (

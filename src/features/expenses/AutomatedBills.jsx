@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Plus } from 'lucide-react'
 import PageHeader from '../../components/layout/PageHeader'
 import DataTable from '../../components/ui/DataTable'
@@ -15,6 +16,7 @@ function StatusChip({ status }) {
 }
 
 export default function AutomatedBills() {
+  const navigate = useNavigate()
   const [bills, setBills] = useState([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
@@ -48,7 +50,7 @@ export default function AutomatedBills() {
   return (
     <div>
       <PageHeader title="Automated Bills" subtitle="Recurring bills & subscriptions" breadcrumb={['Expenses & Journals', 'Automated Bills']}
-        action={<Button variant="primary" icon={Plus} size="sm">New Recurring Bill</Button>}
+        action={<Button variant="primary" icon={Plus} size="sm" onClick={() => navigate('/expenses/new-recurring-bill')}>New Recurring Bill</Button>}
       />
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-5">
         {kpis.map(k => (

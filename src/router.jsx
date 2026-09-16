@@ -115,6 +115,9 @@ import Reconciliation from './features/cashbank/Reconciliation'
 import CashPettyCash from './features/cashbank/CashPettyCash'
 import Contra        from './features/cashbank/Contra'
 import ChequeRegister from './features/cashbank/ChequeRegister'
+import BankStatementImport from './features/cashbank/BankStatementImport'
+import AddBankAccount from './features/cashbank/AddBankAccount'
+import TransferMoney from './features/cashbank/TransferMoney'
 
 // Expenses & Journals
 import ExpenseCenter  from './features/expenses/ExpenseCenter'
@@ -124,6 +127,21 @@ import JournalVouchers from './features/expenses/JournalVouchers'
 import Provisions     from './features/expenses/Provisions'
 import WriteOffs      from './features/expenses/WriteOffs'
 import PeriodClose    from './features/expenses/PeriodClose'
+import ExpenseRulesRecurring from './features/expenses/ExpenseRulesRecurring'
+import ExpenseAccounting from './features/expenses/ExpenseAccounting'
+import ExpenseCloseControl from './features/expenses/ExpenseCloseControl'
+import NewExpensePage from './features/expenses/NewExpensePage'
+import ReceiptInboxPage from './features/expenses/ReceiptInboxPage'
+import PolicyRulesPage from './features/expenses/PolicyRulesPage'
+import ApprovalQueuePage from './features/expenses/ApprovalQueuePage'
+import NewRulePage from './features/expenses/NewRulePage'
+import NewAccountingEntryPage from './features/expenses/NewAccountingEntryPage'
+import NewCategoryPage from './features/expenses/NewCategoryPage'
+import NewRecurringBillPage from './features/expenses/NewRecurringBillPage'
+import NewJournalVoucherPage from './features/expenses/NewJournalVoucherPage'
+import NewProvisionPage from './features/expenses/NewProvisionPage'
+import NewWriteOffPage from './features/expenses/NewWriteOffPage'
+import ClosePeriodReviewPage from './features/expenses/ClosePeriodReviewPage'
 
 // Tax Center
 import GSTReturns          from './features/tax/GSTReturns'
@@ -298,6 +316,9 @@ const REAL_PAGES = {
 
   // Expenses & Journals
   'expenses/expense-center':   ExpenseCenter,
+  'expenses/rules-recurring':  ExpenseRulesRecurring,
+  'expenses/accounting':       ExpenseAccounting,
+  'expenses/close-control':    ExpenseCloseControl,
   'expenses/categories':       Categories,
   'expenses/automated-bills':  AutomatedBills,
   'expenses/journal-vouchers': JournalVouchers,
@@ -410,6 +431,29 @@ const router = createBrowserRouter([
       { path: 'payables/review-holds', element: <RequireAccess sectionId="payables"><MoneyOutActionPage type="review-holds" /></RequireAccess> },
       { path: 'payables/new-supplier-payment', element: <RequireAccess sectionId="payables"><MoneyOutActionPage type="new-supplier-payment" /></RequireAccess> },
       { path: 'payables/vendor-portal', element: <RequireAccess sectionId="payables"><MoneyOutActionPage type="vendor-portal" /></RequireAccess> },
+      { path: 'cashbank/contra', element: <RequireAccess sectionId="cashbank"><Contra /></RequireAccess> },
+      { path: 'cashbank/cheque-register', element: <RequireAccess sectionId="cashbank"><ChequeRegister /></RequireAccess> },
+      { path: 'cashbank/import-statement', element: <RequireAccess sectionId="cashbank"><BankStatementImport /></RequireAccess> },
+      { path: 'cashbank/accounts/new', element: <RequireAccess sectionId="cashbank"><AddBankAccount /></RequireAccess> },
+      { path: 'cashbank/transfer', element: <RequireAccess sectionId="cashbank"><TransferMoney /></RequireAccess> },
+      { path: 'expenses/categories', element: <RequireAccess sectionId="expenses"><Categories /></RequireAccess> },
+      { path: 'expenses/automated-bills', element: <RequireAccess sectionId="expenses"><AutomatedBills /></RequireAccess> },
+      { path: 'expenses/journal-vouchers', element: <RequireAccess sectionId="expenses"><JournalVouchers /></RequireAccess> },
+      { path: 'expenses/provisions', element: <RequireAccess sectionId="expenses"><Provisions /></RequireAccess> },
+      { path: 'expenses/write-offs', element: <RequireAccess sectionId="expenses"><WriteOffs /></RequireAccess> },
+      { path: 'expenses/period-close', element: <RequireAccess sectionId="expenses"><PeriodClose /></RequireAccess> },
+      { path: 'expenses/new-expense', element: <RequireAccess sectionId="expenses"><NewExpensePage /></RequireAccess> },
+      { path: 'expenses/receipt-inbox', element: <RequireAccess sectionId="expenses"><ReceiptInboxPage /></RequireAccess> },
+      { path: 'expenses/policy-rules', element: <RequireAccess sectionId="expenses"><PolicyRulesPage /></RequireAccess> },
+      { path: 'expenses/approval-queue', element: <RequireAccess sectionId="expenses"><ApprovalQueuePage /></RequireAccess> },
+      { path: 'expenses/new-rule', element: <RequireAccess sectionId="expenses"><NewRulePage /></RequireAccess> },
+      { path: 'expenses/new-entry', element: <RequireAccess sectionId="expenses"><NewAccountingEntryPage /></RequireAccess> },
+      { path: 'expenses/new-category', element: <RequireAccess sectionId="expenses"><NewCategoryPage /></RequireAccess> },
+      { path: 'expenses/new-recurring-bill', element: <RequireAccess sectionId="expenses"><NewRecurringBillPage /></RequireAccess> },
+      { path: 'expenses/new-journal-voucher', element: <RequireAccess sectionId="expenses"><NewJournalVoucherPage /></RequireAccess> },
+      { path: 'expenses/new-provision', element: <RequireAccess sectionId="expenses"><NewProvisionPage /></RequireAccess> },
+      { path: 'expenses/new-write-off', element: <RequireAccess sectionId="expenses"><NewWriteOffPage /></RequireAccess> },
+      { path: 'expenses/close-period-action', element: <RequireAccess sectionId="expenses"><ClosePeriodReviewPage /></RequireAccess> },
       { path: 'settings',                    element: <Navigate to="/settings/company-profile" replace /> },
       { path: 'settings/company-profile',    element: <RequireAccess sectionId="settings"><SettingsPanel tab="company-profile" /></RequireAccess> },
       { path: 'settings/configuration',      element: <RequireAccess sectionId="settings"><SettingsPanel tab="configuration"   /></RequireAccess> },

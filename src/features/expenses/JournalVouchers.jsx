@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Plus } from 'lucide-react'
 import PageHeader from '../../components/layout/PageHeader'
 import DataTable from '../../components/ui/DataTable'
@@ -15,6 +16,7 @@ function StatusChip({ status }) {
 }
 
 export default function JournalVouchers() {
+  const navigate = useNavigate()
   const [vouchers, setVouchers] = useState([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
@@ -51,7 +53,7 @@ export default function JournalVouchers() {
   return (
     <div>
       <PageHeader title="Journal Vouchers" subtitle="Manual accounting entries" breadcrumb={['Expenses & Journals', 'Journal Vouchers']}
-        action={<Button variant="primary" icon={Plus} size="sm">New Journal Voucher</Button>}
+        action={<Button variant="primary" icon={Plus} size="sm" onClick={() => navigate('/expenses/new-journal-voucher')}>New Journal Voucher</Button>}
       />
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-5">
         {kpis.map(k => (

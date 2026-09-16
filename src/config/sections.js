@@ -94,11 +94,9 @@ const sections = [
     icon: Landmark,
     group: 'daily',
     tabs: [
-      { id: 'bank-accounts',   label: 'My Accounts'         },
-      { id: 'reconciliation',  label: 'Match Transactions'  },
+      { id: 'bank-accounts',   label: 'Cash & Bank Center'  },
+      { id: 'reconciliation',  label: 'Bank Matching'       },
       { id: 'cash-petty',      label: 'Petty Cash'          },
-      { id: 'contra',          label: 'Between Accounts'    },
-      { id: 'cheque-register', label: 'Cheques'             },
     ],
   },
   {
@@ -107,13 +105,10 @@ const sections = [
     icon: BookMarked,
     group: 'daily',
     tabs: [
-      { id: 'expense-center',   label: 'All Expenses'        },
-      { id: 'categories',       label: 'Expense Types'       },
-      { id: 'automated-bills',  label: 'Recurring Expenses'  },
-      { id: 'journal-vouchers', label: 'Manual Entries'      },
-      { id: 'provisions',       label: 'Accruals'            },
-      { id: 'write-offs',       label: 'Write-offs'          },
-      { id: 'period-close',     label: 'Month-End'           },
+      { id: 'expense-center',  label: 'Expense Center'    },
+      { id: 'rules-recurring', label: 'Rules & Recurring' },
+      { id: 'accounting',      label: 'Accounting'        },
+      { id: 'close-control',   label: 'Close Control'     },
     ],
   },
 

@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Plus } from 'lucide-react'
 import PageHeader from '../../components/layout/PageHeader'
 import DataTable from '../../components/ui/DataTable'
@@ -15,6 +16,7 @@ function StatusChip({ status }) {
 }
 
 export default function WriteOffs() {
+  const navigate = useNavigate()
   const [writeOffs, setWriteOffs] = useState([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
@@ -45,7 +47,7 @@ export default function WriteOffs() {
   return (
     <div>
       <PageHeader title="Write-offs" subtitle="Asset & debt write-offs (requires approval)" breadcrumb={['Expenses & Journals', 'Write-offs']}
-        action={<Button variant="primary" icon={Plus} size="sm">New Write-off</Button>}
+        action={<Button variant="primary" icon={Plus} size="sm" onClick={() => navigate('/expenses/new-write-off')}>New Write-off</Button>}
       />
       <div className="grid grid-cols-2 md:grid-cols-2 gap-3 mb-5">
         {kpis.map(k => (

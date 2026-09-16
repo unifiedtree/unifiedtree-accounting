@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { CheckCircle2, Circle, Lock } from 'lucide-react'
 import PageHeader from '../../components/layout/PageHeader'
 import Button from '../../components/ui/Button'
@@ -15,6 +16,7 @@ const CHECKLIST = [
 ]
 
 export default function PeriodClose() {
+  const navigate = useNavigate()
   const [items] = useState(CHECKLIST)
   const doneCount = items.filter(i => i.status === 'done').length
   const totalCount = items.length
@@ -60,8 +62,8 @@ export default function PeriodClose() {
       </div>
 
       <div className="flex justify-end">
-        <Button variant="primary" icon={Lock} disabled={!allDone}>
-          Close Period
+        <Button variant="primary" icon={Lock} onClick={() => navigate('/expenses/close-period-action')}>
+          {allDone ? 'Close Period' : 'Review Close'}
         </Button>
         {!allDone && <p className="ml-3 text-sm text-[var(--muted)] self-center">{totalCount - doneCount} task(s) still pending</p>}
       </div>

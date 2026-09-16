@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback } from 'react'
 import { Upload, FileText, Sparkles, CheckCircle2, AlertTriangle, X, Check, RefreshCw, Link2, Tag } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import PageHeader from '../../components/layout/PageHeader'
 import Button     from '../../components/ui/Button'
 import { formatCurrency } from '../../lib/currency'
@@ -249,6 +250,7 @@ function ReviewTable({ rows, accepted, onToggle, onAcceptAll, onImport }) {
 
 /* ── Main ── */
 export default function BankStatementImport() {
+  const navigate = useNavigate()
   const [stage,    setStage]    = useState('upload')  // upload | parsing | review | done
   const [fileName, setFileName] = useState('')
   const [accepted, setAccepted] = useState(new Set(MOCK_PARSED.filter(r => r.status !== 'review').map(r => r.id)))
@@ -315,7 +317,7 @@ export default function BankStatementImport() {
           </div>
           <div className="flex gap-3">
             <Button variant="secondary" icon={RefreshCw} onClick={() => { setStage('upload'); setFileName('') }}>Import Another</Button>
-            <Button variant="primary" onClick={() => toast.info('Opening reconciliation…')}>View Reconciliation →</Button>
+            <Button variant="primary" onClick={() => navigate('/cashbank/reconciliation')}>View Bank Matching</Button>
           </div>
         </div>
       )}
