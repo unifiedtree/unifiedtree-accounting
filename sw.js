@@ -5,8 +5,9 @@
    - Static assets:           Cache-first, 7-day max-age
 */
 
-const CACHE_NAME  = 'ut-accounting-v2'
-const SHELL_URLS  = ['/', '/index.html']
+const BASE_PATH = '/unifiedtree-accounting'
+const CACHE_NAME = 'ut-accounting-v3'
+const SHELL_URLS = [`${BASE_PATH}/`, `${BASE_PATH}/index.html`, '/index.html', '/']
 
 /* ── Install: pre-cache shell ── */
 self.addEventListener('install', (event) => {
@@ -38,8 +39,11 @@ self.addEventListener('fetch', (event) => {
   if (url.hostname === 'localhost' || url.hostname === '127.0.0.1' || url.hostname === '::1') return
   if (url.pathname.startsWith('/src/') || url.pathname.startsWith('/node_modules/.vite/')) return
 
+  const normalizedPath = url.pathname.endsWith('/') ? url.pathname : url.pathname
+  const isShell = SHELL_URLS.includes(url.pathname) || url.pathname === '/' || url.pathname === `${BASE_PATH}/` || url.pathname === `${BASE_PATH}`
+
   // App shell — cache first
-  if (SHELL_URLS.includes(url.pathname) || url.pathname === '/') {
+  if (isShell) {
     event.respondWith(cacheFirst(request))
     return
   }
